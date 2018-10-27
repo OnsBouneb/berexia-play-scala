@@ -43,6 +43,9 @@ import scala.io.Source
 import  java.lang.Double
 import org.apache.spark.sql.functions.{unix_timestamp, to_date}
 import  play.api.mvc.Action
+import play.api.libs.json._
+import java.io.File
+
 //import  com.crealytics.spark.excel
 
 
@@ -61,13 +64,59 @@ def Select (requete : String,df:DataFrame): Unit ={
     df.createOrReplaceTempView("ons7")
 
     val k1 = sqlContext.sql(requete)
+      k1.coalesce(1).write.csv("public/p80")
+//import org.apache.hadoop.fs._;
+//val fs = FileSystem.get(sc.hadoopConfiguration());
 
+//fs.rename(new Path("public/p80"), new Path("public/newData.csv"));
     df.show(10)
     k1.show(4)
 
 
     println("jaw save")
   }
+
+def getListOfFiles(dir:String):List[String]= {
+  val file = new File(dir)
+  file.listFiles()
+    .map(_.getPath).filter(p => p.contains(".csv") && !p.contains(".crc")).toList
+
+
+}
+
+
+ def ToDataframe (file:String, ext:String): DataFrame = {
+val path = "/home/onsbouneb/Desktop/" +file +"." +ext
+    if (ext == "xlsx"){
+      val dfons1 = sqlContext.read
+        .format("com.crealytics.spark.excel").option("location", path)
+        .option("useHeader", "true") // Required
+        .load(path = path)
+      return(dfons1)
+    }
+    else {
+      //val sparkSession = SparkSession.builder.master("local").appName("spark session example").getOrCreate()
+
+      val df = sparkSession.read.format("csv").option("header", "true").option("charset", "UTF8").option("delimiter", ";").load(path)
+
+        df.toDF()
+         return (df)
+    }
+
+}
+ def cols(df: DataFrame): Array[String] = {
+
+val array = df.columns
+return(array) 
+/*
+   val colms = array.deep.mkString("\n")
+
+    print(colms)
+    val colmsarray = array.deep
+*/
+    //print(array)
+ }
+
  def GroupBy( col : String, agg :String): Unit = {
 
     val df = sparkSession.read.format("csv").option("header", "true").option("charset", "UTF8").option("delimiter", ";").load("/home/onsbouneb/Desktop/ons.csv")
@@ -134,7 +183,32 @@ val df = sparkSession.read.format("csv").option("header", "true").option("charse
 
   }
 
+def segmentationcol() = Action {
+val df = sparkSession.read.format("csv").option("header", "true").option("charset", "UTF8").option("delimiter", ";").load("/home/onsbouneb/Desktop/ons.csv")
+val j = cols(df) 
+//val jsonString = Json.toJson(k)
+val k = Map("path"-> j)
+ Ok(Json.toJson(k))
 
+  }
+
+def rename() = Action {
+    val j= getListOfFiles("/home/onsbouneb/Pictures/playapp/public/p74")
+val b = Map("path"-> j)
+
+ Ok(Json.toJson(b))
+
+  }
+
+
+
+
+def filetodataframe() = Action {
+val f :DataFrame= ToDataframe("testexcel","xlsx")
+      f.show()
+    Ok(views.html.customersegmentation("filetodataframe"))
+
+}
 
 
 }

@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-
+POST  /file          controllers.ScalaFileUploadController.upload()
 GET     /                              controllers.Pages.login
 
 
@@ -23,7 +23,11 @@ GET     /pages/login                  controllers.Pages.login
 GET     /select         controllers.Select.segmentation  
 GET     /join         controllers.Select.segmentation1 
 GET     /groupby         controllers.Select.segmentation2                                                                                                                                               
+GET     /cols         controllers.Select.segmentationcol 
+GET     /todataframe        controllers.Select.filetodataframe
 
+GET     /rename         controllers.Select.rename  
+                                                                                                                                            
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /tesr                           controllers.UserData.index

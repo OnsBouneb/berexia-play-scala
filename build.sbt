@@ -45,3 +45,4 @@ libraryDependencies ++= Seq(
 
 includeFilter in (Assets, LessKeys.less) := "sb-admin-2.less" | "tables.less"
 
+libraryDependencies += filters
