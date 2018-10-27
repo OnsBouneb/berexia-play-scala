@@ -3,11 +3,14 @@
 # ~~~~
 
 # Home page
-GET     /                             controllers.Application.dashboard
+
+GET     /                              controllers.Pages.login
+
+
 GET     /charts/flot                  controllers.Charts.flot
+GET     /bouneb                  controllers.Charts.bouneb
 GET     /charts/morris                controllers.Charts.morris
-GET     /tables                       controllers.Application.tables
-GET     /forms                        controllers.Application.forms
+
 GET     /ui-elements/panels-and-wells controllers.UiElements.panelsAndWells
 GET     /ui-elements/buttons          controllers.UiElements.buttons
 GET     /ui-elements/notifications    controllers.UiElements.notifications
@@ -17,5 +20,18 @@ GET     /ui-elements/grid             controllers.UiElements.grid
 GET     /pages/blank                  controllers.Pages.blank
 GET     /pages/login                  controllers.Pages.login
 
+GET     /select         controllers.Select.segmentation  
+GET     /join         controllers.Select.segmentation1 
+GET     /groupby         controllers.Select.segmentation2                                                                                                                                               
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /tesr                           controllers.UserData.index
+GET     /tesrchurn                           controllers.UserData.index1
+GET     /tesr1                           controllers.TimeData.index
+
+GET     /createUser                     controllers.UserData.createUser
+GET     /createUser1                     controllers.UserData.createUser1
+GET     /createUser2                     controllers.UserData.createUser2
+GET     /createTime1                     controllers.TimeData.createTime1
+

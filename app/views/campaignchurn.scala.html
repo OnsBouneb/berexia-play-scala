@@ -1,0 +1,26 @@
+
+@(userForm: Form[User])(implicit lang : Lang)
+@import helper._
+@main() {
+<br>
+<br>
+<br> 
+<div class="col-lg-10">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                   Here you can predict either your customer is going to churn or not
+                </div>
+                <div class="panel-body">
+@helper.form(action = routes.UserData.createUser2()) {
+  @helper.inputText(userForm("IMSI"))
+  <button>Predict</button>
+}
+</div>
+
+                <div class="panel-footer">
+                    .
+                </div>
+            </div>
+
+
+}

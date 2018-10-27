@@ -8,8 +8,10 @@ object Pages extends Controller {
     Ok(views.html.pages.blank())
   }
 
+ 
   def login() = Action {
     Ok(views.html.pages.login())
   }
+ 
 
 }

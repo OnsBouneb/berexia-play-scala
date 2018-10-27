@@ -1,0 +1,27 @@
+
+@(timeForm: Form[Time])(implicit lang : Lang)
+@import helper._
+@main() {
+<br>
+<br>
+<br> 
+<div class="col-lg-10">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                   Here you can predict the best offer to your subscriber 
+                </div>
+                <div class="panel-body">
+@helper.form(action = routes.TimeData.createTime1()) {
+  @helper.inputText(timeForm("date1"))
+  @helper.inputText(timeForm("date2"))
+  <button>Predict</button>
+}
+</div>
+
+                <div class="panel-footer">
+                    .
+                </div>
+            </div>
+
+
+}

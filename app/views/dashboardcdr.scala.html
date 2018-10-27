@@ -1,0 +1,131 @@
+@(message: String,message1: String,message2: String,message3: String)
+@localScripts = {
+    <!-- Morris Charts JavaScript -->
+    <script src='@routes.Assets.at("lib/raphaeljs/raphael-min.js")'></script>
+    <script src='@routes.Assets.at("lib/morrisjs/morris.min.js")'></script>
+    <script src='@routes.Assets.at("javascripts/morris-data.js")'></script>
+}
+@main(scripts = localScripts) {
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dashboard</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <!-- /.row -->
+    <div class="row">
+    <div class="col-lg-8">
+    
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div id="data-area-chart"></div>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+   
+    <!-- /.col-lg-8 -->
+   <div class="row">
+    <div class="col-lg-6">
+   
+        
+        <!-- /.panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-bar-chart-o fa-fw"></i> Total Call the first two weeks
+            </div>
+            <div class="panel-body">
+                <div id="data1-donut-chart"></div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+ </div>
+
+    <div class="col-lg-6">
+   
+        
+        <!-- /.panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-bar-chart-o fa-fw"></i> Total Call the last two weeks
+            </div>
+            <div class="panel-body">
+                <div id="data2-donut-chart"></div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+ </div>
+        
+ 
+ 
+        <!-- /.panel-body -->
+     <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-bar-chart-o fa-fw"></i> Total Calls
+            
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            
+                            <tbody>
+                            <tr>
+                                <td>23134661</td>
+                                <td>Number Of Calls</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>1027307958</td>
+                                <td>Total Duration(S)</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>43</td>
+                                <td>Average Call Duration(S)</td>
+                               
+                            </tr>
+                           
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.col-lg-4 (nested) -->
+                
+                <!-- /.col-lg-8 (nested) -->
+            </div>
+            <!-- /.row -->
+       
+    <!-- /.panel -->
+   </div>
+    <!-- /.panel -->
+    </div>
+</div>
+</div>
+
+            <div id="chartcontainer3" style="min-width: 210px; height: 400px; margin: 0 auto"></div>
+   
+<script type="text/javascript">
+$(function () {
+var data3 = 
+        
+    @Html(message3)
+   
+$("#chartcontainer3").highcharts(data3)
+});
+</script>
+<!-- /.panel -->
+       
+            <!-- /.panel-footer -->
+        </div>
+        <!-- /.panel .chat-panel -->
+    </div>
+    <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
+}

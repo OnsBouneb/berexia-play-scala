@@ -1,0 +1,9 @@
+@(userForm: Form[User])(implicit lang : Lang)
+
+@import helper._
+
+@helper.form(action = routes.UserData.index()) {
+  @helper.inputText(userForm("name"))
+  @helper.inputText(userForm("age"))
+}
+

@@ -1,0 +1,68 @@
+@(id : String)
+@localScripts = {
+    <!-- Morris Charts JavaScript -->
+    
+    <script src='@routes.Assets.at("lib/explorercanvas/excanvas.compiled.js")'></script>
+    <script src='@routes.Assets.at("lib/flot/jquery.flot.js")'></script>
+    <script src='@routes.Assets.at("lib/flot/jquery.flot.pie.js")'></script>
+    <script src='@routes.Assets.at("lib/flot/jquery.flot.resize.js")'></script>
+    <script src='@routes.Assets.at("lib/flot/jquery.flot.time.js")'></script>
+    <script src='@routes.Assets.at("lib/flot.tooltip/js/jquery.flot.tooltip.min.js")'></script>
+    <script src='@routes.Assets.at("javascripts/flot-data.js")'></script>
+}
+@main(scripts = localScripts) {
+
+<!-- /.row -->
+<!-- /.row -->
+<!-- /.row -->
+    
+   <br>
+<br>
+<br> 
+<br>
+<br>
+<center>
+    <div class="col-lg-10">
+            <div class="panel panel-default">
+                <div class="panel-heading"> 
+                    <b>Customer Prediction Result</b>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        
+</div>
+</div>
+
+
+<div class="col-lg-12">
+<div class="panel panel-yellow">
+                <div class="panel-heading">
+                  <h1 class="page-header"> <center> @id </center> </h1>
+   </div>
+
+          
+</div>
+</div>
+
+<a  class="btn btn-warning float-right"  href="/tesrchurn" role="button"> Try another number </a>
+               
+
+
+
+ 
+</center>
+
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/vega/2.6.3/vega.min.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/vega-lite/1.2.0/vega-lite.min.js" charset="utf-8"></script>
+<script src="https://vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+
+    </body>
+</html>
+}

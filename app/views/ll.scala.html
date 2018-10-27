@@ -1,0 +1,17 @@
+@(message: String)
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+ <script src="https://code.highcharts.com/highcharts.js"></script>
+ <script src="https://code.highcharts.com/highcharts-more.js"></script>
+ <script src="https://code.highcharts.com/modules/exporting.js"></script>
+ <script src="https://code.highcharts.com/modules/export-data.js"></script>
+<div id="chartcontainer5" style="min-width: 210px; height: 400px; margin: 0 auto"></div>
+
+<script type="text/javascript">
+$(function () {
+var data5 = 
+        
+    @Html(message)
+   
+$("#chartcontainer5").highcharts(data5)
+});
+</script>

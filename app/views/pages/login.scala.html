@@ -19,21 +19,26 @@
         <![endif]-->
     </head>
     <body>
+<!-- jQuery -->
+        <script src='@routes.Assets.at("lib/jquery/jquery.min.js")'></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src='@routes.Assets.at("lib/bootstrap/js/bootstrap.min.js")'></script>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="login-panel panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Please Sign In</h3>
+                            <h3 class="panel-title"> Welcome back to your world of campaign management  ! </h3>
                         </div>
                         <div class="panel-body">
-                            <form role="form">
+                            <form >
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
-                                    </div>
+         <input class="form-control" placeholder="Username" name="username" type="username" id="username" required autofocus>
+                                    	</div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                        <input class="form-control" placeholder="Password" name="password" type="password" id="password"   required value="">
                                     </div>
                                     <div class="checkbox">
                                         <label>
@@ -41,21 +46,38 @@
                                         </label>
                                     </div>
                                     <!-- Change this to a button or input when using this as a form -->
-                                    <a href="@routes.Application.dashboard" class="btn btn-lg btn-success btn-block">Login</a>
+
+   
+                                   
+                                   
                                 </fieldset>
+                 
                             </form>
+           <button onclick="verife();" class="btn btn-lg btn-success btn-block"> Login</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- jQuery -->
-        <script src='@routes.Assets.at("lib/jquery/jquery.min.js")'></script>
+        
+<script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src='@routes.Assets.at("lib/bootstrap/js/bootstrap.min.js")'></script>
-
+function verife()
+{ 
+ var username = document.getElementById("username").value; 
+var password = document.getElementById("password").value; 
+if (username == "infosfmtelecomoperateur" && password == "sfmcustomer.2018")
+{
+window.location.href="http://localhost:9025/summary"
+   //window.location = "http://localhost:9021/summary";
+}
+else 
+{
+   alert("your username or password is invalid");
+}
+}
+</script>
         <!-- Custom Theme JavaScript -->
         <script src='@routes.Assets.at("javascripts/sb-admin-2.js")'></script>
     </body>

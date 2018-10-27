@@ -53,16 +53,16 @@ $(document).ready(function() {
 $(function() {
 
     var data = [{
-        label: "Series 0",
+        label: "ariena",
         data: 1
     }, {
-        label: "Series 1",
+        label: "tunis",
         data: 3
     }, {
-        label: "Series 2",
+        label: "Sidi bousid",
         data: 9
     }, {
-        label: "Series 3",
+        label: "beja",
         data: 20
     }];
 
